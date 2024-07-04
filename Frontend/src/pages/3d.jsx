@@ -8,16 +8,16 @@ import axios from 'axios'
 import React from 'react'
 import Navigation from '../components/navbar'
 import { getCoordinates } from '../utils/Mapper'
-//importing d3 for reading csv file
+
 import * as d3 from 'd3'
-//import { readFromCSV } from './utils'
+
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { EncodeUTF8 } from 'three/examples/jsm/libs/fflate.module.js'
 //importing papa parse to read csv file
 import Papa from 'papaparse'
 // import Navigation from './navbar'
 import Swal from 'sweetalert2';
-//import { useState } from 'react';
+
 import { Button } from 'react-bootstrap';
 var layoutdata = [];
 function Scene() {
