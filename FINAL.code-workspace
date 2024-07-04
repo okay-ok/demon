@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../FINAL"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "MyWarehouseVisualizer-master"
+	}
+}
