@@ -126,9 +126,7 @@ function Box(props) {
 
       }
 
-        // if(!clicked){
-        // alert("Coordinates"+props.position+"\n"+"Capacity:"+props.position[1]+"\n"+"Location:"+props.position[2]);
-        // }
+        
       }
 
       onPointerOver={(event) => (event.stopPropagation(), hover(true))}

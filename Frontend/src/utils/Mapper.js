@@ -6,3 +6,4 @@ export const getCoordinates = (row, subrow, level) => {
   return [ x, y, z ];
 };
 //takes in the row index,subrow index,and level: returns the corresponding x,y,z positions
+
