@@ -65,12 +65,14 @@ function Box(props) {
   // useFrame((state, delta)=>(ref.current.rotation.x += 0.0))
   // Return the view, these are regular Threejs elements expressed in JSX
   //generate color of box according to it's date, later date is greener, earlier date is redder
-  const val = props.position[0];
+  const val = props.filled;
   //scaling the color from red to green
-  var bcolor;
-  if (val > 0 && val <= 3) { bcolor = "red"; }
-  else if (val > 3 && val < 9) { bcolor = "orange"; }
-  else { bcolor = "green"; }
+  if (val == 1) {
+    var bcolor = 'red';
+  }
+  else {
+    var bcolor = 'green';
+  }
 
   return (
     <mesh
@@ -107,7 +109,7 @@ function Box(props) {
           title: 'Choose an option:',
           icon: 'question',
           showCancelButton: true,
-          confirmButtonText: 'Go To Entry Point',
+          confirmButtonText: 'Edit Inventory',
           cancelButtonText: 'Go Back',
 
         }).then((result) => {
@@ -116,7 +118,7 @@ function Box(props) {
             window.open(`/edit-racks/${id}`, "_notbl");
           } else if (result.dismiss === Swal.DismissReason.cancel) {
             // //setting the clicked value to false
-            // click(false);
+             click(false);
           } else {
             // Code for Option 3
           }
@@ -224,7 +226,7 @@ function Train() {
                     scale={[1.7, 3.5, 2.5]}
                   />
 
-                  <Box position={getCoordinates(data['Aisle'],data['Rack'],data['Level'])} Name={data['_id']}  />
+                  <Box position={getCoordinates(data['Aisle'],data['Rack'],data['Level'])} Name={data['_id']} filled={data["Filled"]}  />
                   {/* <Box position={[data['x'], data['y'] + 2.5, data['z']]} />
                   <Box position={[data['x'], data['y'] + 4.3, data['z']]} /> */}
                 </group>
