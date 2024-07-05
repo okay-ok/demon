@@ -75,6 +75,7 @@ const Home = () => {
                             </tr>
                         </thead>
                         <tbody>
+                            
                             {currentRows.map((rack) => (
                                 <tr key={rack._id}>
                                     <td>{rack.Zone.toString()}</td>

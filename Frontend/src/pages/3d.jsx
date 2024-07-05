@@ -88,30 +88,32 @@ function Box(props) {
             title: 'Choose an option:',
             icon: 'question',
             showCancelButton: true,
-
             confirmButtonText: 'Go To Entry Point',
             cancelButtonText: 'Go Back',
           }).then((result) => {
             if (result.isConfirmed) {
-         //redirect to google in new tab and reload that tab as well
+              //redirect to google in new tab and reload that tab as well
               window.open(`/edit-rack/${id}`, "_notbl");
               //redirectTo("localhost:3000");
-
             } else if (result.dismiss === Swal.DismissReason.cancel) {
 
             } else {
               // Code for Option 3
             }
           });
+          <Text fontSize={1} color="white" position={[0, 1.5, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+            {props.Name}
+          </Text>
           /////////////////////////////////////Dialog Box//////////////////////
         }
         Swal.fire({
-          title: 'Choose an option:',
+          title: props.Item,
           icon: 'question',
           showCancelButton: true,
+          showDenyButton: true,
           confirmButtonText: 'Edit Inventory',
           cancelButtonText: 'Go Back',
-
+          denyButtonText:'Clear Inventory'
         }).then((result) => {
           if (result.isConfirmed) {
             //redirect to google in new tab
@@ -121,7 +123,11 @@ function Box(props) {
              click(false);
           } else {
             // Code for Option 3
+            click(false);
           }
+          <Text fontSize={1} color="white" position={[0, 1.5, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+          {props.Item}
+        </Text>
         });
 
       }
@@ -224,7 +230,7 @@ function Train() {
                     scale={[1.7, 3.5, 2.5]}
                   />
 
-                  <Box position={getCoordinates(data['Aisle'],data['Rack'],data['Level'])} Name={data['_id']} filled={data["Filled"]}  />
+                  <Box position={getCoordinates(data['Aisle'],data['Rack'],data['Level'])} Name={data['_id']} filled={data["Filled"]} Item={data['Item']}  />
                   {/* <Box position={[data['x'], data['y'] + 2.5, data['z']]} />
                   <Box position={[data['x'], data['y'] + 4.3, data['z']]} /> */}
                 </group>
