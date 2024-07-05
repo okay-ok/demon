@@ -70,7 +70,7 @@ const Home = () => {
                                 <th>Rack</th>
                                 <th>Level</th>
                                 <th>Filled</th>
-                                <th>Item</th>
+                                <th>Item Sr. No</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>

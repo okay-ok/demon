@@ -170,7 +170,7 @@ const Edit = () => {
             </div>
 
             <div className='my-4'>
-              <label className='text-xl mr-4 text-gray-500'>Item</label>
+              <label className='text-xl mr-4 text-gray-500'>Item Sr.No.</label>
               <input
                 type='text'
                 value={Item}

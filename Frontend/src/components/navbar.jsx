@@ -7,12 +7,12 @@ function Navigation() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="/">Demo</Navbar.Brand>
+        <Navbar.Brand href="/">Inventory</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/dashboard">Home</Nav.Link>
-            <Nav.Link href="/add-rack">Add</Nav.Link>
+            <Nav.Link href="/dashboard">Zone-Layout</Nav.Link>
+            <Nav.Link href="/add-rack">Add-New-Rack</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="/delete-rack">Action_Upload</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
