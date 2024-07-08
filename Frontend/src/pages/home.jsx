@@ -35,7 +35,7 @@ const Home = () => {
             return
         }
         const result = racks.filter((rack) => {
-            return rack.Zone.toLowerCase().includes(search.toLowerCase())
+            return rack.Item.toLowerCase().includes(search.toLowerCase())
         })
         
         setSearched(result)
@@ -45,7 +45,11 @@ const Home = () => {
     const indexOfLastRow = currentPage * rowsPerPage
     const indexOfFirstRow = indexOfLastRow - rowsPerPage
     const currentRows = searched.slice(indexOfFirstRow, indexOfLastRow)
-
+/**
+ * kuch toh krta h yar yeh,khud hi dekhlo m bhul gya
+ * @param {*} pageNumber 
+ * @returns goodvalue
+ */
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
     return (
@@ -55,7 +59,7 @@ const Home = () => {
                 <a href='/add-rack' className='btn btn-primary mx-2'>
                     <MdOutlineAddBox /> Add New
                 </a>
-                <input type='text' placeholder='Search...' className='form-control mx-2 m-1' />
+                <input type='text' placeholder='Search by Item Sr No...' className='form-control mx-2 m-1' />
                 <button className='btn btn-primary' onClick={handleSearch}>Search</button>
             </div>
             <div className='px-4 py-2 justify-items-center content-center'>

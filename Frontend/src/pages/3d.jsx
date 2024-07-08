@@ -321,7 +321,7 @@ export default function Visual() {
       roughness={1}
     />
   </mesh>
-  <Environment preset='forest' />
+  {/* <Environment preset='forest' /> */}
 </Suspense>
 
 </Canvas> 

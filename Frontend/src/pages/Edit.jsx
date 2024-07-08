@@ -106,86 +106,82 @@ const Edit = () => {
       .catch((err) => {
         console.log(err)
       }
-      )
-  }, [])
-
-
+      )}, [id])
   return (
     <>
       <Navigation />
       <div className='p-4 dark:bg-gray-800'>
-        <h1 className='text-3xl my-4 text-white'>Edit</h1>
-        {loading ? <Spinner /> : ''}
-        <div className='flex flex-col border-2 border-sky-400 rounded-xl w-[600px] p-4 mx-auto dark:border-gray-500'>
-          <div className='my-4'></div>
-          <label className='text-xl mr-4 text-gray-500 dark:text-gray-400'>Zone</label>
-          <input
-            type='text'
-            value={Zone}
-            onChange={(e) => setZone(e.target.value)}
-            className='border-2 border-gray-500 px-4 py-2 w-full dark:bg-gray-700 dark:text-white'
-            disabled
-          />
-          // Remove the extra closing </div> tag
+      <h1 className='text-3xl my-4 text-white'>Edit</h1>
+      {loading ? <Spinner /> : ''}
+      <div className='flex flex-col border-2 border-sky-400 rounded-xl w-[600px] p-4 mx-auto dark:border-gray-500'>
+        <div className='my-4'></div>
+        <label className='text-xl mr-4 text-gray-500 dark:text-gray-400'>Zone</label>
+        <input
+        type='text'
+        value={Zone}
+        onChange={(e) => setZone(e.target.value)}
+        className='border-2 border-gray-500 px-4 py-2 w-full dark:bg-gray-700 dark:text-white'
+        disabled
+        />
         <div className='my-4'>
-          <label className='text-xl mr-4 text-gray-500 dark:text-gray-400'>Aisle</label>
-          <input
-            type='text'
-            value={Aisle}
-            onChange={(e) => setAisle(e.target.value)}
-            className='border-2 border-gray-500 px-4 py-2 w-full dark:bg-gray-700 dark:text-white'
-            disabled
-          />
+        <label className='text-xl mr-4 text-gray-500 dark:text-gray-400'>Aisle</label>
+        <input
+          type='text'
+          value={Aisle}
+          onChange={(e) => setAisle(e.target.value)}
+          className='border-2 border-gray-500 px-4 py-2 w-full dark:bg-gray-700 dark:text-white'
+          disabled
+        />
         </div>
         <div className='my-4'>
-          <label className='text-xl mr-4 text-gray-500 dark:text-gray-400'>Rack</label>
-          <input
-            type='text'
-            value={Rack}
-            onChange={(e) => setRack(e.target.value)}
-            className='border-2 border-gray-500 px-4 py-2 w-full dark:bg-gray-700 dark:text-white'
-            disabled
-          />
+        <label className='text-xl mr-4 text-gray-500 dark:text-gray-400'>Rack</label>
+        <input
+          type='text'
+          value={Rack}
+          onChange={(e) => setRack(e.target.value)}
+          className='border-2 border-gray-500 px-4 py-2 w-full dark:bg-gray-700 dark:text-white'
+          disabled
+        />
         </div>
         <div className='my-4'>
-          <label className='text-xl mr-4 text-gray-500 dark:text-gray-400'>Level</label>
-          <input
-            type='text'
-            value={Level}
-            onChange={(e) => setLevel(e.target.value)}
-            className='border-2 border-gray-500 px-4 py-2 w-full dark:bg-gray-700 dark:text-white'
-            disabled
-          />
+        <label className='text-xl mr-4 text-gray-500 dark:text-gray-400'>Level</label>
+        <input
+          type='text'
+          value={Level}
+          onChange={(e) => setLevel(e.target.value)}
+          className='border-2 border-gray-500 px-4 py-2 w-full dark:bg-gray-700 dark:text-white'
+          disabled
+        />
         </div>
         <div className='my-4'>
-          <label className='text-xl mr-4 text-gray-500 dark:text-gray-400'>Capacity</label>
-          <input
-            type='text'
-            value={Capacity}
-            onChange={(e) => setCapacity(e.target.value)}
-            className='border-2 border-gray-500 px-4 py-2 w-full dark:bg-gray-700 dark:text-white'
-            disabled
-          />
+        <label className='text-xl mr-4 text-gray-500 dark:text-gray-400'>Capacity</label>
+        <input
+          type='text'
+          value={Capacity}
+          onChange={(e) => setCapacity(e.target.value)}
+          className='border-2 border-gray-500 px-4 py-2 w-full dark:bg-gray-700 dark:text-white'
+          disabled
+        />
         </div>
         <div className='my-4'>
-          <label className='text-xl mr-4 text-gray-500 dark:text-gray-400'>Filled</label>
-          <select
-            value={Filled}
-            onChange={(e) => {
-              setFilled(e.target.value);
-              if (e.target.value === 'false') {
-                setValue(0);
-                setItem('0');
-                setOccupiedWeight(0);
-                setUnits('0');
-              } else {
-              }
-            }}
-            className='border-2 border-gray-500 px-4 py-2 w-full dark:bg-gray-700 dark:text-white'
-          >
-            <option value='true'>True</option>
-            <option value='false'>False</option>
-          </select>
+        <label className='text-xl mr-4 text-gray-500 dark:text-gray-400'>Filled</label>
+        <select
+          value={Filled}
+          onChange={(e) => {
+          setFilled(e.target.value);
+          if (e.target.value === 'false') {
+            setValue(0);
+            setItem('0');
+            setOccupiedWeight(0);
+            setUnits('0');
+          } else {
+          }
+          }}
+          className='border-2 border-gray-500 px-4 py-2 w-full dark:bg-gray-700 dark:text-white'
+        >
+          <option value='true'>True</option>
+          <option value='false'>False</option>
+        </select>
         </div>
         <div className='my-4'>
         <label className='text-xl mr-4 text-gray-500 dark:text-gray-400'>Item Sr.No.</label>
@@ -196,8 +192,8 @@ const Edit = () => {
           className='border-2 border-gray-500 px-4 py-2 w-full dark:bg-gray-700 dark:text-white'
           disabled={Filled === 'false'}
         />
-      </div>
-      <div className='my-4'>
+        </div>
+        <div className='my-4'>
         <label className='text-xl mr-4 text-gray-500 dark:text-gray-400'>OccupiedWeight</label>
         <input
           type='text'
@@ -206,8 +202,8 @@ const Edit = () => {
           className='border-2 border-gray-500 px-4 py-2 w-full dark:bg-gray-700 dark:text-white'
           disabled={Filled === 'false'}
         />
-      </div>
-      <div className='my-4'>
+        </div>
+        <div className='my-4'>
         <label className='text-xl mr-4 text-gray-500 dark:text-gray-400'>MaxWeight</label>
         <input
           type='text'
@@ -216,8 +212,8 @@ const Edit = () => {
           className='border-2 border-gray-500 px-4 py-2 w-full dark:bg-gray-700 dark:text-white'
           disabled
         />
-      </div>
-      <div className='my-4'>
+        </div>
+        <div className='my-4'>
         <label className='text-xl mr-4 text-gray-500 dark:text-gray-400'>Units</label>
         <input
           type='text'
@@ -226,8 +222,8 @@ const Edit = () => {
           className='border-2 border-gray-500 px-4 py-2 w-full dark:bg-gray-700 dark:text-white'
           disabled={Filled === 'false'}
         />
-      </div>
-      <div className='my-4'>
+        </div>
+        <div className='my-4'>
         <label className='text-xl mr-4 text-gray-500 dark:text-gray-400'>Value</label>
         <input
           type='text'
@@ -236,15 +232,16 @@ const Edit = () => {
           className='border-2 border-gray-500 px-4 py-2 w-full dark:bg-gray-700 dark:text-white'
           disabled={Filled === 'false'}
         />
-      </div>
-      <div className='my-4'>
+        </div>
+        <div className='my-4'>
         <button className='p-2 bg-sky-300 m-8 dark:bg-gray-600 dark:text-white' onClick={handleSubmit}>
           Confirm Edit
         </button>
-      </div >
-    </div >
+        </div>
+      </div>
+      </div>
     </>
-  );
-}
+    );
+  }
 
 export default Edit

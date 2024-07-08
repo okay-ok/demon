@@ -7,6 +7,10 @@ import Spinner from '../components/spinner'
 import { useSnackbar } from 'notistack'
 
 
+import { TextField, Button } from '@mui/material';
+
+// ...
+
 
 const Add = () => {
   const [Zone, setZone] = React.useState('');
@@ -76,136 +80,131 @@ const Add = () => {
   return (
     <>
       <Navigation />
-      <div className='p-4'>
-        <h1 className='text-3xl my-4'>Edit</h1>
-        {loading ? <Spinner /> : ''}
-        <div className='flex flex-col border-2 border-sky-400 rounded-xl w-[600px] p-4 mx-auto'>
-
-          <div className='my-4'>
-            <label className='text-xl mr-4 text-gray-500'>Zone</label>
-            <input
-              type='text'
-              value={Zone}
-              onChange={(e) => setZone(e.target.value)}
-              className='border-2 border-gray-500 px-4 py-2 w-full'
-              
-            />
-          </div>
-          <div className='my-4'>
-            <label className='text-xl mr-4 text-gray-500'>Aisle</label>
-            <input
-              type='text'
-              value={Aisle}
-              onChange={(e) => setAisle(e.target.value)}
-              className='border-2 border-gray-500 px-4 py-2  w-full '
-              
-            />
-          </div>
-          <div className='my-4'>
-            <label className='text-xl mr-4 text-gray-500'>Rack</label>
-            <input
-              type='text'
-              value={Rack}
-              onChange={(e) => setRack(e.target.value)}
-              className='border-2 border-gray-500 px-4 py-2  w-full '
-              
-            />
-          </div>
-          <div className='my-4'>
-            <label className='text-xl mr-4 text-gray-500'>Level</label>
-            <input
-              type='text'
-              value={Level}
-              onChange={(e) => setLevel(e.target.value)}
-              className='border-2 border-gray-500 px-4 py-2  w-full '
-              
-            />
-          </div>
-          <div className='my-4'>
-            <label className='text-xl mr-4 text-gray-500'>Capacity</label>
-            <input
-              type='text'
-              value={Capacity}
-              onChange={(e) => setCapacity(e.target.value)}
-              className='border-2 border-gray-500 px-4 py-2  w-full '
-              
-            />
-            <div className='my-4'>
-              <label className='text-xl mr-4 text-gray-500'>Filled</label>
-              <select
-                value={Filled}
-                onChange={(e) => setFilled(e.target.value)}
-                className='border-2 border-gray-500 px-4 py-2 w-full'
-              >
-                <option value='-NA-'>-NA-</option>
-                <option value='true'>True</option>
-                <option value='false'>False</option>
-              </select>
-            </div>
-
-            <div className='my-4'>
-              <label className='text-xl mr-4 text-gray-500'>Item Sr. No.</label>
-              <input
-                type='text'
-                value={Item}  
-                onChange={(e) => setItem(e.target.value)}
-                className='border-2 border-gray-500 px-4 py-2  w-full '
-              />
-            </div>
-            <div className='my-4'>
-              <label className='text-xl mr-4 text-gray-500'>OccupiedWeight</label>
-              <input
-                type='text'
-                value={OccupiedWeight}
-                onChange={(e) => setOccupiedWeight(e.target.value)}
-                className='border-2 border-gray-500 px-4 py-2  w-full '
-              />
-            </div>
-            <div className='my-4'>
-              <label className='text-xl mr-4 text-gray-500'>MaxWeight</label>
-              <input
-                type='text'
-                value={MaxWeight}
-                onChange={(e) => setMaxWeight(e.target.value)}
-                className='border-2 border-gray-500 px-4 py-2  w-full '
-                
-              />
-            </div>
-            <div className='my-4'>
-              <label className='text-xl mr-4 text-gray-500'>Units</label>
-              <input
-                type='text'
-                value={Units}
-                onChange={(e) => setUnits(e.target.value)}
-                className='border-2 border-gray-500 px-4 py-2  w-full '
-              />
-            </div>
-            <div className='my-4'>
-              <label className='text-xl mr-4 text-gray-500'>Value</label>
-              <input
-                type='text'
-                value={Value}
-                onChange={(e) => setValue(e.target.value)}
-                className='border-2 border-gray-500 px-4 py-2  w-full '
-              />
-            </div>
-            <button className='p-2 bg-sky-300 m-8' onClick={handleSubmit}>
-              Confirm Edit
-            </button>
-          </div>
-
-
-       
-       </div>
-        
+      <div className='p-4 dark:bg-gray-800'>
+      <h1 className='text-3xl my-4 dark:text-white'>Edit</h1>
+      {loading ? <Spinner /> : ''}
+      <div className='flex flex-col border-2 border-sky-400 rounded-xl w-[600px] p-4 mx-auto dark:border-gray-600'>
+        <div className='my-4'>
+        <select
+          value={Zone}
+          onChange={(e) => setZone(e.target.value)}
+          className='border border-gray-300 rounded-md p-2 w-full dark:bg-gray-700 dark:text-white'
+        >
+          <option value='1'>1</option>
+          <option value='2'>2</option>
+          <option value='3'>3</option>
+          <option value='4'>4</option>
+          <option value='5'>5</option>
+          <option value='6'>6</option>
+        </select>
+        </div>
+        <div className='my-4'>
+        <input
+          type='text'
+          placeholder='Aisle'
+          value={Aisle}
+          onChange={(e) => setAisle(e.target.value)}
+          className='border border-gray-300 rounded-md p-2 w-full dark:bg-gray-700 dark:text-white'
+        />
+        </div>
+        <div className='my-4'>
+        <input
+          type='text'
+          placeholder='Rack'
+          value={Rack}
+          onChange={(e) => setRack(e.target.value)}
+          className='border border-gray-300 rounded-md p-2 w-full dark:bg-gray-700 dark:text-white'
+        />
+        </div>
+        <div className='my-4'>
+        <input
+          type='text'
+          placeholder='Level'
+          value={Level}
+          onChange={(e) => setLevel(e.target.value)}
+          className='border border-gray-300 rounded-md p-2 w-full dark:bg-gray-700 dark:text-white'
+        />
+        </div>
+        <div className='my-4'>
+        <input
+          type='text'
+          placeholder='Capacity'
+          value={Capacity}
+          onChange={(e) => setCapacity(e.target.value)}
+          className='border border-gray-300 rounded-md p-2 w-full dark:bg-gray-700 dark:text-white'
+        />
+        </div>
+        <div className='my-4'>
+        <select
+          value={Filled}
+          onChange={(e) => setFilled(e.target.value)}
+          className='border border-gray-300 rounded-md p-2 w-full dark:bg-gray-700 dark:text-white'
+        >
+          <option value='-NA-'>-NA-</option>
+          <option value='true'>True</option>
+          <option value='false'>False</option>
+        </select>
+        </div>
+        <div className='my-4'>
+        <input
+          type='text'
+          placeholder='Item Sr. No.'
+          value={Item}
+          onChange={(e) => setItem(e.target.value)}
+          className='border border-gray-300 rounded-md p-2 w-full dark:bg-gray-700 dark:text-white'
+        />
+        </div>
+        <div className='my-4'>
+        <input
+          type='text'
+          placeholder='OccupiedWeight'
+          value={OccupiedWeight}
+          onChange={(e) => setOccupiedWeight(e.target.value)}
+          className='border border-gray-300 rounded-md p-2 w-full dark:bg-gray-700 dark:text-white'
+        />
+        </div>
+        <div className='my-4'>
+        <input
+          type='text'
+          placeholder='MaxWeight'
+          value={MaxWeight}
+          onChange={(e) => setMaxWeight(e.target.value)}
+          className='border border-gray-300 rounded-md p-2 w-full dark:bg-gray-700 dark:text-white'
+        />
+        </div>
+        <div className='my-4'>
+        <input
+          type='text'
+          placeholder='Units'
+          value={Units}
+          onChange={(e) => setUnits(e.target.value)}
+          className='border border-gray-300 rounded-md p-2 w-full dark:bg-gray-700 dark:text-white'
+        />
+        </div>
+        <div className='my-4'>
+        <input
+          type='text'
+          placeholder='Value'
+          value={Value}
+          onChange={(e) => setValue(e.target.value)}
+          className='border border-gray-300 rounded-md p-2 w-full dark:bg-gray-700 dark:text-white'
+        />
+        </div>
+        <button
+        className='bg-blue-500 text-white rounded-md p-2 w-full'
+        onClick={handleSubmit}
+        >
+        Confirm Addition
+        </button>
       </div>
-      </>
-        );
+      </div>
+    </>
+    );
 };
 
 
- 
-  
-  
+
+
+
 
 export default Add
