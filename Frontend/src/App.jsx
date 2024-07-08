@@ -5,11 +5,12 @@ import Edit from './pages/Edit'
 import Visual from './pages/3d'
 import Delete from './pages/Delete'
 import Add from './pages/Add'
-
+import Home1 from './pages/Viewer'
+import './index.css'
 const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Home1 />} />
       <Route path="/edit-racks/:number" element={<Edit />} />
       <Route path="/edit-racks/" element={<Edit />} />
       <Route path="/dashboard" element={<Visual />} />
