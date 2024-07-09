@@ -6,6 +6,7 @@ import Visual from './pages/3d'
 import Delete from './pages/Delete'
 import Add from './pages/Add'
 import Home1 from './pages/Viewer'
+import Clear from './pages/Clear'
 import './index.css'
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
       <Route path="/add-rack" element={<Add />} />
       <Route path="/delete-racks/:number" element={< Delete/>} />
       <Route path="/delete-racks" element={< Delete/>} />
+      <Route path="/clear-rack/:number" element={<Clear />} />
     </Routes>
   )
 }

@@ -96,7 +96,8 @@ function Box(props) {
               window.open(`/edit-rack/${id}`, "_notbl");
               //redirectTo("localhost:3000");
             } else if (result.dismiss === Swal.DismissReason.cancel) {
-
+              window.open(`/clear-rack/${id}`, "_notbl");
+              click(false);
             } else {
               // Code for Option 3
             }
@@ -107,7 +108,7 @@ function Box(props) {
           /////////////////////////////////////Dialog Box//////////////////////
         }
         Swal.fire({
-          title: props.Item,
+          title: props.id,
           icon: 'question',
           showCancelButton: true,
           showDenyButton: true,
@@ -119,10 +120,11 @@ function Box(props) {
             //redirect to google in new tab
             window.open(`/edit-racks/${id}`, "_notbl");
           } else if (result.dismiss === Swal.DismissReason.cancel) {
-            // //setting the clicked value to false
+          
              click(false);
           } else {
             // Code for Option 3
+            window.open(`/clear-rack/${id}`, "_notbl");
             click(false);
           }
           <Text fontSize={1} color="white" position={[0, 1.5, 0]} rotation={[-Math.PI / 2, 0, 0]}>

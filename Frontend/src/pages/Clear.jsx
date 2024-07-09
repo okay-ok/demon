@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { useSnackbar } from 'notistack'
 
 
-const Edit = () => {
+const Clear = () => {
   //EXTRACTING THE ID FROM THE URL
   const Navigate = useNavigate()
   const { enqueueSnackbar } = useSnackbar()
@@ -59,20 +59,20 @@ const Edit = () => {
       enqueueSnackbar('Please Fill All Fields', { variant: 'error' });
       return;
     }
-    
-    if(data.Filled === 'false'){
+     data.Filled='false'
+     if(data.Filled === 'false'){
       data.Item = '0'
       data.OccupiedWeight = '0'
       data.Units = '0'
       data.Value = '0'
-    }
+     }
 
     axios
       .put(`http://localhost:3000/pallets/${id}`, data)
       .then(() => {
         setLoading(false);
         enqueueSnackbar('pallet Edited Successfully', { variant: 'success' });
-        Navigate('/');
+        Navigate('/dashboard');
         return;
       })
       .catch((err) => {
@@ -178,6 +178,7 @@ const Edit = () => {
           }
           }}
           className='border-2 border-gray-500 px-4 py-2 w-full dark:bg-gray-700 dark:text-white'
+          disabled
         >
           <option value='true'>True</option>
           <option value='false'>False</option>
@@ -190,7 +191,7 @@ const Edit = () => {
           value={Item}
           onChange={(e) => setItem(e.target.value)}
           className='border-2 border-gray-500 px-4 py-2 w-full dark:bg-gray-700 dark:text-white'
-          disabled={Filled === 'false'}
+          disabled
         />
         </div>
         <div className='my-4'>
@@ -200,7 +201,7 @@ const Edit = () => {
           value={OccupiedWeight}
           onChange={(e) => setOccupiedWeight(e.target.value)}
           className='border-2 border-gray-500 px-4 py-2 w-full dark:bg-gray-700 dark:text-white'
-          disabled={Filled === 'false'}
+          disabled
         />
         </div>
         <div className='my-4'>
@@ -220,7 +221,7 @@ const Edit = () => {
           value={Units}
           onChange={(e) => setUnits(e.target.value)}
           className='border-2 border-gray-500 px-4 py-2 w-full dark:bg-gray-700 dark:text-white'
-          disabled={Filled === 'false'}
+          disabled
         />
         </div>
         <div className='my-4'>
@@ -230,12 +231,12 @@ const Edit = () => {
           value={Value}
           onChange={(e) => setValue(e.target.value)}
           className='border-2 border-gray-500 px-4 py-2 w-full dark:bg-gray-700 dark:text-white'
-          disabled={Filled === 'false'}
+          disabled
         />
         </div>
         <div className='my-4'>
         <button className='p-2 bg-sky-300 m-8 dark:bg-gray-600 dark:text-white' onClick={handleSubmit}>
-          Confirm Edit
+          Confirm Clear
         </button>
         </div>
       </div>
@@ -244,4 +245,4 @@ const Edit = () => {
     );
   }
 
-export default Edit
+export default Clear

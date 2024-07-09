@@ -73,7 +73,7 @@ const Home1 = () => {
 
         <div className='d-flex justify-content-center'>
             <Button variant="contained" color="primary" href="/add-rack" className='mx-2'>
-                <MdOutlineAddBox /> Add New
+                <MdOutlineAddBox /> Add New Pallet Position
             </Button>
         </div>
         {/* // <div ><Button variant="contained" color="primary" href="/add-rack" className='mx-2'>
@@ -95,6 +95,7 @@ const Home1 = () => {
                     
                     
                         <DataGrid
+                        stickyHeader
                             getRowId={(row) => row._id}
                             rows={racks.map((rack) => ({ ...rack, id: rack._id }))}
                             columns={[
@@ -128,6 +129,8 @@ const Home1 = () => {
                             pageSize={rowsPerPage}
                             pagination
                             onPageChange={(params) => paginate(params.page)}
+                            
+                            //checkboxSelection
                         />
                     
                        // className='monokai'
