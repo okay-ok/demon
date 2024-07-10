@@ -5,7 +5,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.css';
 function Navigation() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar   expand="lg">
       <Container>
         <Navbar.Brand href="/landing" className='py-0 justify-end'>
           <img src="/VI.svg" alt="VI Logo" />

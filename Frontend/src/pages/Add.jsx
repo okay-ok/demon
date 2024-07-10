@@ -81,7 +81,7 @@ const Add = () => {
     <>
       <Navigation />
       <div className='p-4 dark:bg-gray-800'>
-      <h1 className='text-3xl my-4 dark:text-white'>Edit</h1>
+      <h1 className='text-3xl my-4 dark:text-white d-flex justify-content-center'>Add New Position</h1>
       {loading ? <Spinner /> : ''}
       <div className='flex  flex-col border-2 border-sky-400 rounded-xl w-[600px] p-4 mx-auto dark:border-gray-600'>
         <div className='my-4 flex-row'>

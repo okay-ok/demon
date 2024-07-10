@@ -301,7 +301,7 @@ export default function Visual() {
       
       
       <Navigation/>
-        <Canvas  dpr={[1, 1.5]} shadows camera={{ position: [-15, 15, 18], fov: 35 }} gl={{ alpha: false }} style={{height: '641px'}}>
+        <Canvas  dpr={[1, 1.5]} shadows camera={{ position: [-15, 15, 18], fov: 35 }} gl={{ alpha: false }} style={{height: '633px'}}>
           <fog attach="fog" args={['#17171b', 30, 90]} />
           
 <color attach="background"  />

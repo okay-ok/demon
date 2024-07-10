@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Minus, Plus } from "lucide-react"
 import { Bar, BarChart, ResponsiveContainer } from "recharts"
-
+import Navigation from "@/components/navbar"
 import { Button } from "../components/button"
 import {
   Drawer,
@@ -64,10 +64,14 @@ export default function Landing() {
   }
 
   return (
+    <>
+    <Navigation />
     <Drawer>
+      <div className='d-flex justify-content-center'>
       <DrawerTrigger asChild>
-        <Button variant="outline">Open Drawer</Button>
+        <Button variant="outline" className="align-middle justify-center ">Open Drawer</Button>
       </DrawerTrigger>
+      </div>
       <DrawerContent>
         <div className="mx-auto w-full max-w-sm">
           <DrawerHeader>
@@ -120,7 +124,7 @@ export default function Landing() {
             </div>
           </div>
           <DrawerFooter>
-            <Button>Submit</Button>
+            <Button className="mx-auto">Submit</Button>
             <DrawerClose asChild>
               <Button variant="outline">Cancel</Button>
             </DrawerClose>
@@ -128,5 +132,6 @@ export default function Landing() {
         </div>
       </DrawerContent>
     </Drawer>
+    </>
   )
 }
