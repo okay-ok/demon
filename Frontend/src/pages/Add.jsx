@@ -83,13 +83,14 @@ const Add = () => {
       <div className='p-4 dark:bg-gray-800'>
       <h1 className='text-3xl my-4 dark:text-white'>Edit</h1>
       {loading ? <Spinner /> : ''}
-      <div className='flex flex-col border-2 border-sky-400 rounded-xl w-[600px] p-4 mx-auto dark:border-gray-600'>
-        <div className='my-4'>
+      <div className='flex  flex-col border-2 border-sky-400 rounded-xl w-[600px] p-4 mx-auto dark:border-gray-600'>
+        <div className='my-4 flex-row'>
         <select
           value={Zone}
           onChange={(e) => setZone(e.target.value)}
           className='border border-gray-300 rounded-md p-2 w-full dark:bg-gray-700 dark:text-white'
         >
+          <option value='-NA-'>-NA-</option>
           <option value='1'>1</option>
           <option value='2'>2</option>
           <option value='3'>3</option>
@@ -98,7 +99,7 @@ const Add = () => {
           <option value='6'>6</option>
         </select>
         </div>
-        <div className='my-4'>
+        <div className='my-4 flex-row'>
         <input
           type='text'
           placeholder='Aisle'

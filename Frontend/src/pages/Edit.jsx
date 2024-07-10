@@ -8,7 +8,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 import { useSnackbar } from 'notistack'
 
-
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 const Edit = () => {
   //EXTRACTING THE ID FROM THE URL
   const Navigate = useNavigate()
@@ -107,10 +108,141 @@ const Edit = () => {
         console.log(err)
       }
       )}, [id])
-  return (
-    <>
-      <Navigation />
-      <div className='p-4 dark:bg-gray-800'>
+ // return (
+    //<>
+     // <Navigation />
+  
+
+      // ...
+
+      return (
+        <>
+          <Navigation />
+          <div className='p-4 dark:bg-gray-800'>
+        <h1 className='text-3xl my-4 text-white'>Edit</h1>
+        {loading ? <Spinner /> : ''}
+        <div className='flex flex-col border-2 border-sky-400 rounded-xl w-[600px] p-4 mx-auto dark:border-gray-500'>
+          <div className='my-4'></div>
+          <Form>
+            
+            <Form.Group className='mb-3' controlId='zone'>
+          <Form.Label>Zone</Form.Label>
+          <Form.Control
+            type='text'
+            value={Zone}
+            onChange={(e) => setZone(e.target.value)}
+            disabled
+          />
+            </Form.Group>
+            <Form.Group className='mb-3' controlId='aisle'>
+          <Form.Label>Aisle</Form.Label>
+          <Form.Control
+            type='text'
+            value={Aisle}
+            onChange={(e) => setAisle(e.target.value)}
+            disabled
+          />
+            </Form.Group>
+            <Form.Group className='mb-3' controlId='rack'>
+          <Form.Label>Rack</Form.Label>
+          <Form.Control
+            type='text'
+            value={Rack}
+            onChange={(e) => setRack(e.target.value)}
+            disabled
+          />
+            </Form.Group>
+            <Form.Group className='mb-3' controlId='level'>
+          <Form.Label>Level</Form.Label>
+          <Form.Control
+            type='text'
+            value={Level}
+            onChange={(e) => setLevel(e.target.value)}
+            disabled
+          />
+            </Form.Group>
+            <Form.Group className='mb-3' controlId='capacity'>
+          <Form.Label>Capacity</Form.Label>
+          <Form.Control
+            type='text'
+            value={Capacity}
+            onChange={(e) => setCapacity(e.target.value)}
+            disabled
+          />
+            </Form.Group>
+            <Form.Group className='mb-3' controlId='filled'>
+          <Form.Label>Filled</Form.Label>
+          <Form.Select
+            value={Filled}
+            onChange={(e) => {
+              setFilled(e.target.value);
+              if (e.target.value === 'false') {
+            setValue(0);
+            setItem('0');
+            setOccupiedWeight(0);
+            setUnits('0');
+              }
+            }}
+            disabled={loading}
+          >
+            <option value='true'>True</option>
+            <option value='false'>False</option>
+          </Form.Select>
+            </Form.Group>
+            <Form.Group className='mb-3' controlId='item'>
+          <Form.Label>Item Sr.No.</Form.Label>
+          <Form.Control
+            type='text'
+            value={Item}
+            onChange={(e) => setItem(e.target.value)}
+            disabled={Filled === 'false'}
+          />
+            </Form.Group>
+            <Form.Group className='mb-3' controlId='occupiedWeight'>
+          <Form.Label>OccupiedWeight</Form.Label>
+          <Form.Control
+            type='text'
+            value={OccupiedWeight}
+            onChange={(e) => setOccupiedWeight(e.target.value)}
+            disabled={Filled === 'false'}
+          />
+            </Form.Group>
+            <Form.Group className='mb-3' controlId='maxWeight'>
+          <Form.Label>MaxWeight</Form.Label>
+          <Form.Control
+            type='text'
+            value={MaxWeight}
+            onChange={(e) => setMaxWeight(e.target.value)}
+            disabled
+          />
+            </Form.Group>
+            <Form.Group className='mb-3' controlId='units'>
+          <Form.Label>Units</Form.Label>
+          <Form.Control
+            type='text'
+            value={Units}
+            onChange={(e) => setUnits(e.target.value)}
+            disabled={Filled === 'false'}
+          />
+            </Form.Group>
+            <Form.Group className='mb-3' controlId='value'>
+          <Form.Label>Value</Form.Label>
+          <Form.Control
+            type='text'
+            value={Value}
+            onChange={(e) => setValue(e.target.value)}
+            disabled={Filled === 'false'}
+          />
+            </Form.Group>
+            <Button variant='primary' onClick={handleSubmit}>
+          Confirm Edit
+            </Button>
+          </Form>
+        </div>
+          </div>
+        </>
+      );
+      {/* <div className='p-4 dark:bg-gray-800'>
       <h1 className='text-3xl my-4 text-white'>Edit</h1>
       {loading ? <Spinner /> : ''}
       <div className='flex flex-col border-2 border-sky-400 rounded-xl w-[600px] p-4 mx-auto dark:border-gray-500'>
@@ -239,9 +371,9 @@ const Edit = () => {
         </button>
         </div>
       </div>
-      </div>
-    </>
-    );
+      </div> */}
+    //</>
+    //);
   }
 
 export default Edit

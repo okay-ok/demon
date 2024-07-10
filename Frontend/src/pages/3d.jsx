@@ -108,8 +108,8 @@ function Box(props) {
           /////////////////////////////////////Dialog Box//////////////////////
         }
         Swal.fire({
-          title: props.id,
-          icon: 'question',
+          title:'Item Sr. No : '+ props.Item,
+          imageUrl:'VI.svg',
           showCancelButton: true,
           showDenyButton: true,
           confirmButtonText: 'Edit Inventory',
@@ -225,12 +225,16 @@ function Train() {
             vales[name].map((data) => {
               return (
                 <group>
-                  <Model2
+                  
+                  {data['Level'] !=2 ? (
+                    <></>
+                ) : (  <Model2
 
-                    position={getCoordinates(data['Aisle'], data['Rack'], 0)}
+                  position={getCoordinates(data['Aisle'], data['Rack'], 0)}
 
-                    scale={[1.7, 3.5, 2.5]}
-                  />
+                  scale={[1.7, 3.5, 2.5]}
+                />)};
+                
 
                   <Box position={getCoordinates(data['Aisle'],data['Rack'],data['Level'])} Name={data['_id']} filled={data["Filled"]} Item={data['Item']}  />
                   {/* <Box position={[data['x'], data['y'] + 2.5, data['z']]} />
@@ -254,7 +258,7 @@ function Train() {
   useFrame(() => (ref.current.position.z = scroll.offset * 340))
   // Merged creates THREE.InstancedMeshes out of the meshes you feed it
   // All in all we end up with just 5 draw-calls for the entire scene
-  const { radius, ambient, color } = useControls({
+  const { radius, ambient, colour } = useControls({
     color:  '#f12' ,
     radius: { value: 3, min: 0, max: 10 },
     ambient: { value: 0.6, min: 0, max: 1 }
@@ -265,7 +269,7 @@ function Train() {
       <Merged castShadow receiveShadow meshes={meshes}>
         {(models) => (
           <group ref={ref}>
-            <Cabin models={models} color={color} seatColor="sandybrown" name="1" position={[0, 0, -6]} />
+            <Cabin models={models} color={colour} seatColor="sandybrown" name="1" position={[0, 0, -6]} radius={radius}/>
             <Cabin models={models} color="#454545" seatColor="gray" name="2" position={[0, 0, -58]} />
             <Cabin models={models} color="#252525" seatColor="lightskyblue" name="3" position={[0, 0, -110]} />
             <Cabin models={models} color="#454545" seatColor="gray" name="4" position={[0, 0, -162]} />

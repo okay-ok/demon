@@ -7,7 +7,10 @@ function Navigation() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="/">Inventory</Navbar.Brand>
+        <Navbar.Brand href="/landing" className='py-0 justify-end'>
+          <img src="/VI.svg" alt="VI Logo" />
+        </Navbar.Brand>
+        <Navbar.Brand href="/" style={{ color: 'red' }}>Inventory</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
