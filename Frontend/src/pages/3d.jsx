@@ -1,7 +1,7 @@
 import { Suspense, useMemo, useRef, useState,useEffect } from 'react'
 import { Canvas, useFrame, useLoader } from '@react-three/fiber'
 import { Leva, useControls } from 'leva'
-import { useGLTF, useScroll, ScrollControls, Environment, Merged, Text, MeshReflectorMaterial } from '@react-three/drei'
+import { useGLTF, useScroll, ScrollControls, Environment, Merged, Text, MeshReflectorMaterial, Image, Svg } from '@react-three/drei'
 import Model from './model'
 import Model2 from './model2'
 import axios from 'axios'
@@ -143,7 +143,9 @@ function Box(props) {
     >
 
       <boxGeometry args={[1, 0.7, 1]} />
-
+      //adding the VI SVG image on the box
+      
+      
       <meshStandardMaterial color={clicked ? 'blue' : bcolor} />
     </mesh>
   )
@@ -216,7 +218,9 @@ function Train() {
         <Text fontSize={4} color="white" position={[0, 0, 19]} rotation={[-Math.PI / 2, 0, 0]} >
           {(name)}
         </Text>
-        {/* console.log(data) */}
+        
+        {/* <Svg src='VI.svg' position={[-8, 0, 17]} rotation={[-Math.PI / 2, 0, 0]} scale={[0.1,0.1,0.1]} />
+        console.log(data) */}
         <models.Cabin color={color} scale={[6, 1, 2]} />
         
 
@@ -259,14 +263,14 @@ function Train() {
   // Merged creates THREE.InstancedMeshes out of the meshes you feed it
   // All in all we end up with just 5 draw-calls for the entire scene
   const { radius, ambient, colour } = useControls({
-    color:  '#f12' ,
+    colour:  '#f12' ,
     radius: { value: 3, min: 0, max: 10 },
     ambient: { value: 0.6, min: 0, max: 1 }
   })
   return (
     <>
      
-      <Merged castShadow receiveShadow meshes={meshes}>
+      <Merged  meshes={meshes}>
         {(models) => (
           <group ref={ref}>
             <Cabin models={models} color={colour} seatColor="sandybrown" name="1" position={[0, 0, -6]} radius={radius}/>
@@ -301,31 +305,21 @@ export default function Visual() {
       
       
       <Navigation/>
-        <Canvas  dpr={[1, 1.5]} shadows camera={{ position: [-15, 15, 18], fov: 35 }} gl={{ alpha: false }} style={{height: '633px'}}>
+        <Canvas  dpr={[1, 1.5]}  camera={{ position: [-15, 15, 18], fov: 35 }} gl={{ alpha: false }} style={{height: '633px'}}>
           <fog attach="fog" args={['#17171b', 30, 90]} />
           
 <color attach="background"  />
-<ambientLight intensity={0.75} />
-<directionalLight castShadow intensity={1} position={[1, 6, 6]} shadow-mapSize={[1024, 1024]}>
+{/* <ambientLight intensity={0.75} /> */}
+{/* <directionalLight castShadow intensity={1} position={[1, 6, 6]} shadow-mapSize={[1024, 1024]}>
   <orthographicCamera attach="shadow-camera" left={-20} right={20} top={20} bottom={-20} />
-</directionalLight>
+</directionalLight> */}
 <Suspense fallback={null}>
   <ScrollControls pages={8}>
     <Train />
   </ScrollControls>
   <mesh position={[0, -1.5, 0]} rotation={[-Math.PI / 2, 0, 0]}>
     <planeGeometry args={[90, 90]} />
-    <MeshReflectorMaterial
-      blur={[400, 100]}
-      resolution={1024}
-      mixBlur={1}
-      mixStrength={15}
-      depthScale={1}
-      minDepthThreshold={0.85}
-      color="#151515"
-      metalness={0.6}
-      roughness={1}
-    />
+    <meshStandardMaterial color="#17171b" />
   </mesh>
   {/* <Environment preset='forest' /> */}
 </Suspense>
