@@ -124,7 +124,7 @@ export default function Landing() {
             </div>
           </div>
           <DrawerFooter>
-            <Button className="mx-auto">Submit</Button>
+            <Button className="">Submit</Button>
             <DrawerClose asChild>
               <Button variant="outline">Cancel</Button>
             </DrawerClose>
