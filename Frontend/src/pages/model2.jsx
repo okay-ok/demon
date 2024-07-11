@@ -10,7 +10,7 @@ export default function Model2(props) {
         receiveShadow
         geometry={nodes.steel_frame_shelves_01.geometry}
         material={materials.steel_frame_shelves_01}
-        position={[0.01 , 0, 0]}
+        position={[0.01, 0, 0]}
       />
     </group>
   )

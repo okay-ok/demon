@@ -1,4 +1,4 @@
-import { Suspense, useMemo, useRef, useState,useEffect } from 'react'
+import { Suspense, useMemo, useRef, useState, useEffect } from 'react'
 import { Canvas, useFrame, useLoader } from '@react-three/fiber'
 import { Leva, useControls } from 'leva'
 import { useGLTF, useScroll, ScrollControls, Environment, Merged, Text, MeshReflectorMaterial, Image, Svg } from '@react-three/drei'
@@ -28,7 +28,7 @@ function Scene() {
 
 
 var vales = [];
-var rax=[];
+var rax = [];
 vales["1"] = [];
 vales["2"] = [];
 vales["3"] = [];
@@ -41,7 +41,7 @@ vales["6"] = []
 function Box(props) {
 
   const ref = useRef()
-  const id=props.Name;
+  const id = props.Name;
   // Hold state for hovered and clicked events
   const [hovered, hover] = useState(false)
   const [clicked, click] = useState(false)
@@ -79,7 +79,7 @@ function Box(props) {
       {...props}
       ref={ref}
       scale={clicked ? 1.15 : 1}
-  
+
       onClick={(event) => {
         click(!clicked);
         if (!clicked) {
@@ -108,33 +108,33 @@ function Box(props) {
           /////////////////////////////////////Dialog Box//////////////////////
         }
         Swal.fire({
-          title:'Item Sr. No : '+ props.Item,
-          imageUrl:'VI.svg',
+          title: 'Item Sr. No : ' + props.Item,
+          imageUrl: 'VI.svg',
           showCancelButton: true,
           showDenyButton: true,
           confirmButtonText: 'Edit Inventory',
           cancelButtonText: 'Go Back',
-          denyButtonText:'Clear Inventory'
+          denyButtonText: 'Clear Inventory'
         }).then((result) => {
           if (result.isConfirmed) {
             //redirect to google in new tab
             window.open(`/edit-racks/${id}`, "_notbl");
           } else if (result.dismiss === Swal.DismissReason.cancel) {
-          
-             click(false);
+
+            click(false);
           } else {
             // Code for Option 3
             window.open(`/clear-rack/${id}`, "_notbl");
             click(false);
           }
           <Text fontSize={1} color="white" position={[0, 1.5, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-          {props.Item}
-        </Text>
+            {props.Item}
+          </Text>
         });
 
       }
 
-        
+
       }
 
       onPointerOver={(event) => (event.stopPropagation(), hover(true))}
@@ -144,8 +144,8 @@ function Box(props) {
 
       <boxGeometry args={[1, 0.7, 1]} />
       //adding the VI SVG image on the box
-      
-      
+
+
       <meshStandardMaterial color={clicked ? 'blue' : bcolor} />
     </mesh>
   )
@@ -157,7 +157,7 @@ function Train() {
   const ref = useRef()
   const scroll = useScroll()
   const [cabin] = useGLTF(['/cabin-transformed.glb'])
- 
+
 
 
 
@@ -165,28 +165,28 @@ function Train() {
   console.log("ko");
   const Cabin = ({ models, color = 'red', name, ...props }) => {
 
-    console.log("Currently at rack "+name);
-    
+    console.log("Currently at rack " + name);
+
     const [loading, setLoading] = useState(false)
     const [racks, setRacks] = useState([]);
     useEffect(() => {
-        setLoading(true)
-        axios.get('http://localhost:3000/pallets')
-            .then(res => {
-                setRacks(res.data.data)
-                
-                rax = res.data.data;
-                setLoading(false)
-            })
-            .catch(err => {
-                console.log(err)
-                setLoading(false)
-            })  
+      setLoading(true)
+      axios.get('http://localhost:3000/pallets')
+        .then(res => {
+          setRacks(res.data.data)
+
+          rax = res.data.data;
+          setLoading(false)
+        })
+        .catch(err => {
+          console.log(err)
+          setLoading(false)
+        })
     }
-    , []);
+      , []);
     console.log(rax);
-    for (var j=0;j<racks.length;j++){
-      if (racks[j].Zone==name){
+    for (var j = 0; j < racks.length; j++) {
+      if (racks[j].Zone == name) {
         vales[name] = [...vales[name], racks[j]];
       }
     }
@@ -218,33 +218,33 @@ function Train() {
         <Text fontSize={4} color="white" position={[0, 0, 19]} rotation={[-Math.PI / 2, 0, 0]} >
           {(name)}
         </Text>
-        
+
         {/* <Svg src='VI.svg' position={[-8, 0, 17]} rotation={[-Math.PI / 2, 0, 0]} scale={[0.1,0.1,0.1]} />
         console.log(data) */}
         <models.Cabin color={color} scale={[6, 1, 2]} />
-        
+
 
         <Suspense fallback={null}>
           {
             vales[name].map((data) => {
               return (
                 <group>
-                  
-                  {data['Level'] !=2 ? (
+
+                  {data['Level'] != 2 ? (
                     <></>
-                ) : (  <Model2
+                  ) : (<Model2
 
-                  position={getCoordinates(data['Aisle'], data['Rack'], 0)}
+                    position={getCoordinates(data['Aisle'], data['Rack'], 0)}
 
-                  scale={[1.7, 3.5, 2.5]}
-                />)};
-                
+                    scale={[1.7, 3.5, 2.5]}
+                  />)};
 
-                  <Box position={getCoordinates(data['Aisle'],data['Rack'],data['Level'])} Name={data['_id']} filled={data["Filled"]} Item={data['Item']}  />
+
+                  <Box position={getCoordinates(data['Aisle'], data['Rack'], data['Level'])} Name={data['_id']} filled={data["Filled"]} Item={data['Item']} />
                   {/* <Box position={[data['x'], data['y'] + 2.5, data['z']]} />
                   <Box position={[data['x'], data['y'] + 4.3, data['z']]} /> */}
                 </group>
-                
+
               );
 
 
@@ -263,17 +263,17 @@ function Train() {
   // Merged creates THREE.InstancedMeshes out of the meshes you feed it
   // All in all we end up with just 5 draw-calls for the entire scene
   const { radius, ambient, colour } = useControls({
-    colour:  '#f12' ,
+    colour: '#f12',
     radius: { value: 3, min: 0, max: 10 },
     ambient: { value: 0.6, min: 0, max: 1 }
   })
   return (
     <>
-     
-      <Merged  meshes={meshes}>
+
+      <Merged meshes={meshes}>
         {(models) => (
           <group ref={ref}>
-            <Cabin models={models} color={colour} seatColor="sandybrown" name="1" position={[0, 0, -6]} radius={radius}/>
+            <Cabin models={models} color={colour} seatColor="sandybrown" name="1" position={[0, 0, -6]} radius={radius} />
             <Cabin models={models} color="#454545" seatColor="gray" name="2" position={[0, 0, -58]} />
             <Cabin models={models} color="#252525" seatColor="lightskyblue" name="3" position={[0, 0, -110]} />
             <Cabin models={models} color="#454545" seatColor="gray" name="4" position={[0, 0, -162]} />
@@ -283,7 +283,7 @@ function Train() {
           </group>
         )}
       </Merged>
-      
+
     </>
   )
 }
@@ -292,45 +292,45 @@ function Train() {
 
 
 export default function Visual() {
-  
 
-  
+
+
   return (
     //adding button to toggle color
     //adding a navbar from react bootstrap
     <div>
       {/* <Navigation color="red"/> */}
-      
-      
-      
-      
-      <Navigation/>
-        <Canvas  dpr={[1, 1.5]}  camera={{ position: [-15, 15, 18], fov: 35 }} gl={{ alpha: false }} style={{height: '633px'}}>
-          <fog attach="fog" args={['#17171b', 30, 90]} />
-          
-<color attach="background"  />
-{/* <ambientLight intensity={0.75} /> */}
-{/* <directionalLight castShadow intensity={1} position={[1, 6, 6]} shadow-mapSize={[1024, 1024]}>
+
+
+
+
+      <Navigation />
+      <Canvas dpr={[1, 1.5]} camera={{ position: [-15, 15, 18], fov: 35 }} gl={{ alpha: false }} style={{ height: '633px' }}>
+        <fog attach="fog" args={['#17171b', 30, 90]} />
+
+        <color attach="background" />
+        {/* <ambientLight intensity={0.75} /> */}
+        {/* <directionalLight castShadow intensity={1} position={[1, 6, 6]} shadow-mapSize={[1024, 1024]}>
   <orthographicCamera attach="shadow-camera" left={-20} right={20} top={20} bottom={-20} />
 </directionalLight> */}
-<Suspense fallback={null}>
-  <ScrollControls pages={8}>
-    <Train />
-  </ScrollControls>
-  <mesh position={[0, -1.5, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-    <planeGeometry args={[90, 90]} />
-    <meshStandardMaterial color="#17171b" />
-  </mesh>
-  {/* <Environment preset='forest' /> */}
-</Suspense>
+        <Suspense fallback={null}>
+          <ScrollControls pages={8}>
+            <Train />
+          </ScrollControls>
+          <mesh position={[0, -1.5, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+            <planeGeometry args={[90, 90]} />
+            <meshStandardMaterial color="#17171b" />
+          </mesh>
+          {/* <Environment preset='forest' /> */}
+        </Suspense>
 
-</Canvas> 
-        
-      
-      
-        
-      
-      
+      </Canvas>
+
+
+
+
+
+
     </div>
   )
 }

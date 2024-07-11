@@ -11,7 +11,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Cube.geometry}
-        material={new THREE.MeshBasicMaterial({     ...props })}
+        material={new THREE.MeshBasicMaterial({ ...props })}
         position={[0, 4, 0]}
         scale={[1, 0.041, 1]}
       />

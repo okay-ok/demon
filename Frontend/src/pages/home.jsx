@@ -37,7 +37,7 @@ const Home = () => {
         const result = racks.filter((rack) => {
             return rack.Item.toLowerCase().includes(search.toLowerCase())
         })
-        
+
         setSearched(result)
         setCurrentPage(1)
     }
@@ -45,12 +45,12 @@ const Home = () => {
     const indexOfLastRow = currentPage * rowsPerPage
     const indexOfFirstRow = indexOfLastRow - rowsPerPage
     const currentRows = searched.slice(indexOfFirstRow, indexOfLastRow)
-/**
- * kuch toh krta h yar yeh,khud hi dekhlo m bhul gya
- * @param {*} pageNumber 
- * @returns goodvalue
- * Tstt!!
- */
+    /**
+     * kuch toh krta h yar yeh,khud hi dekhlo m bhul gya
+     * @param {*} pageNumber 
+     * @returns goodvalue
+     * Tstt!!
+     */
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
     return (
@@ -80,7 +80,7 @@ const Home = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            
+
                             {currentRows.map((rack) => (
                                 <tr key={rack._id}>
                                     <td>{rack.Zone.toString()}</td>

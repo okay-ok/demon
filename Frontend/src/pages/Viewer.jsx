@@ -52,31 +52,31 @@ const Home1 = () => {
                 setLoading(false)
             })
     }, [])
-    
 
-  
-/**
- * kuch toh krta h yar yeh,khud hi dekhlo m bhul gya
- * @param {*} pageNumber 
- * @returns goodvalue
- * Tstt!!
- */
+
+
+    /**
+     * kuch toh krta h yar yeh,khud hi dekhlo m bhul gya
+     * @param {*} pageNumber 
+     * @returns goodvalue
+     * Tstt!!
+     */
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
-   
+
 
 
     return (
         <>
             <Navigation />
-            
 
-        <div className='d-flex justify-content-center'>
-            <Button variant="contained" color="primary" href="/add-rack" className='mx-2'>
-                <MdOutlineAddBox /> Add New Pallet Position
-            </Button>
-        </div>
-        {/* // <div ><Button variant="contained" color="primary" href="/add-rack" className='mx-2'>
+
+            <div className='d-flex justify-content-center'>
+                <Button variant="contained" color="primary" href="/add-rack" className='mx-2'>
+                    <MdOutlineAddBox /> Add New Pallet Position
+                </Button>
+            </div>
+            {/* // <div ><Button variant="contained" color="primary" href="/add-rack" className='mx-2'>
         //         <MdOutlineAddBox /> Add New
         //     </Button></div>
              */}
@@ -85,57 +85,57 @@ const Home1 = () => {
                     <MdOutlineAddBox /> Add New
                 </a>
                  */}
-                
+
             {/* </div> */}
             <div className='px-4 py-2 justify-items-center content-center'>
                 {loading ? (
                     <Spinner />
                 ) : (
-                   
-                    
-                    
-                        <DataGrid
+
+
+
+                    <DataGrid
                         stickyHeader
-                            getRowId={(row) => row._id}
-                            rows={racks.map((rack) => ({ ...rack, id: rack._id }))}
-                            columns={[
-                                { field: 'Zone', headerName: 'Zone' },
-                                { field: 'Aisle', headerName: 'Aisle' },
-                                { field: 'Rack', headerName: 'Rack' },
-                                { field: 'Level', headerName: 'Level' },
-                                { field: 'Filled', headerName: 'Filled' },
-                                { field: 'Item', headerName: 'Item Sr. No' },
-                                {
-                                    field: 'Actions',
-                                    headerName: 'Actions',
-                                    headerAlign: 'center',
-                                    width: 240,
-                                    renderCell: (params) => (
-                                        <div style={{ display: 'flex', justifyContent: 'space-between', width: '200px' }}>
-                                            <a href={`/dash/${params.row._id}`} className='btn btn-primary m-1' title='View Details'>
-                                                <BsInfoCircle />
-                                            </a>
-                                            <a href={`/edit-racks/${params.row._id}`} className='btn btn-warning m-1' title='Edit Rack'>
-                                                <AiOutlineEdit />
-                                            </a>
-                                            <a href={`/delete-racks/${params.row._id}`} className='btn btn-danger m-1' title='Delete Rack'>
-                                                <MdOutlineDeleteOutline />
-                                            </a>
-                                        </div>
-                                    ),
-                                },
-                            ]}
-                            autoHeight
-                            pageSize={rowsPerPage}
-                            pagination
-                            onPageChange={(params) => paginate(params.page)}
-                            
-                            //checkboxSelection
-                        />
-                    
-                       // className='monokai'
-                    
-                   // </ThemeProvider>
+                        getRowId={(row) => row._id}
+                        rows={racks.map((rack) => ({ ...rack, id: rack._id }))}
+                        columns={[
+                            { field: 'Zone', headerName: 'Zone' },
+                            { field: 'Aisle', headerName: 'Aisle' },
+                            { field: 'Rack', headerName: 'Rack' },
+                            { field: 'Level', headerName: 'Level' },
+                            { field: 'Filled', headerName: 'Filled' },
+                            { field: 'Item', headerName: 'Item Sr. No' },
+                            {
+                                field: 'Actions',
+                                headerName: 'Actions',
+                                headerAlign: 'center',
+                                width: 240,
+                                renderCell: (params) => (
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', width: '200px' }}>
+                                        <a href={`/dash/${params.row._id}`} className='btn btn-primary m-1' title='View Details'>
+                                            <BsInfoCircle />
+                                        </a>
+                                        <a href={`/edit-racks/${params.row._id}`} className='btn btn-warning m-1' title='Edit Rack'>
+                                            <AiOutlineEdit />
+                                        </a>
+                                        <a href={`/delete-racks/${params.row._id}`} className='btn btn-danger m-1' title='Delete Rack'>
+                                            <MdOutlineDeleteOutline />
+                                        </a>
+                                    </div>
+                                ),
+                            },
+                        ]}
+                        autoHeight
+                        pageSize={rowsPerPage}
+                        pagination
+                        onPageChange={(params) => paginate(params.page)}
+
+                    //checkboxSelection
+                    />
+
+                    // className='monokai'
+
+                    // </ThemeProvider>
                 )}
             </div>
         </>
