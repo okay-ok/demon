@@ -7,7 +7,9 @@ import Delete from './pages/Delete'
 import Add from './pages/Add'
 import Home1 from './pages/Viewer'
 import Clear from './pages/Clear'
-import Landing from './pages/Landing'
+import Warehouse from './pages/Landing'
+import SuggestPalletZone from './pages/Suggest1'
+import SensorPage from './pages/Sensor'
 import './index.css'
 const App = () => {
   return (
@@ -19,9 +21,9 @@ const App = () => {
       <Route path="/dash/:number" element={<Edit />} />
       <Route path="/add-rack" element={<Add />} />
       <Route path="/delete-racks/:number" element={< Delete/>} />
-      <Route path="/delete-racks" element={< Delete/>} />
+      <Route path="/delete-rack" element={< SensorPage/>} />
       <Route path="/clear-rack/:number" element={<Clear />} />
-      <Route path="/landing" element={<Landing />} />
+      <Route path="/landing" element={<SuggestPalletZone />} />
     </Routes>
   )
 }
