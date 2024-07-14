@@ -16,15 +16,16 @@ function Navigation() {
           <Nav className="me-auto">
             <Nav.Link href="/dashboard">Zone-Layout</Nav.Link>
             <Nav.Link href="/add-rack">Add-New-Rack</Nav.Link>
+            <Nav.Link href="/landing">Suggest-Pallet-Zone</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/delete-rack">Action_Upload</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
+              <NavDropdown.Item href="/delete-rack">Sensor-Status</NavDropdown.Item>
+              <NavDropdown.Item href="/dash">
+                Site Trends
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">-NA-</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">
-                Separated link
+               -NA-
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>

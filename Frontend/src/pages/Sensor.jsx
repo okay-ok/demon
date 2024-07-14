@@ -105,8 +105,9 @@ const SensorPage = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Navigation/>
-      <div style={{ padding: '20px', backgroundColor: theme.palette.background.default, minHeight: '100vh' }}>
+      <Navigation />
+      <div style={{ padding: '10px', backgroundColor: theme.palette.background.default, maxHeight: '100vh' }}>
+      
         <Typography variant="h4" gutterBottom style={{ color: theme.palette.text.primary }}>Warehouse Sensor Status</Typography>
         
         <Button 
