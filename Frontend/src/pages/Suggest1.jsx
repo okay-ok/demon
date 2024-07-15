@@ -88,7 +88,9 @@ const MAX_RACK_WEIGHT = 1000; // kg
       pallet.Level.toString() === level.toString() && 
       !pallet.Filled
     );
-    setSuitableRacks(suitable);
+    //setting suitable racks to the first 5 racks
+    setSuitableRacks(suitable.slice(0, 5));
+    //setSuitableRacks(suitable);
   };
 
   const handleFragilityChange = (newValue) => {
@@ -166,7 +168,7 @@ const MAX_RACK_WEIGHT = 1000; // kg
                   </Alert>
                   {suitableRacks.length > 0 ? (
                     <div className="mt-4">
-                      <h3 className="text-lg font-semibold mb-2">Available Racks:</h3>
+                      <h3 className="text-lg font-semibold mb-2"> First 5 Available Racks:</h3>
                       <ul className="list-disc pl-5">
                         {suitableRacks.map((rack, index) => (
                           <li key={index} className="text-gray-700">
@@ -176,7 +178,7 @@ const MAX_RACK_WEIGHT = 1000; // kg
                       </ul>
                     </div>
                   ) : (
-                    <p className="text-red-600 mt-4">Sorry! No racks available!</p>
+                    <p className="text-red-600 mt-4">Sorry! No racks available! Please consider changing the Fragility/Importance Slider!</p>
                   )}
                   <Box sx={{ width: '100%', mt: 4, maxWidth: '300px' }}>
                     <Typography id="fragility-slider" gutterBottom className="text-gray-700 text-center">

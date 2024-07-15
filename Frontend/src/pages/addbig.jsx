@@ -8,9 +8,9 @@ import { TextField, Button, Select, MenuItem, Grid } from '@mui/material';
 
 const AddBig = () => {
   const initialPallet = {
-    Zone: '1',
+    Zone: '4',
     Rack: '1',
-    Level: '1',
+    Level: '2',
     Capacity: '1',
     Filled: 'false',
     Item: '1',
@@ -53,7 +53,7 @@ const AddBig = () => {
       .then(() => {
         setLoading(false);
         enqueueSnackbar('8 Pallets Added Successfully', { variant: 'success' });
-        Navigate('/');
+        //Navigate('/');
       })
       .catch((err) => {
         setLoading(false);

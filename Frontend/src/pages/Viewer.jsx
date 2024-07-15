@@ -112,7 +112,7 @@ const Home1 = () => {
                                 width: 240,
                                 renderCell: (params) => (
                                     <div style={{ display: 'flex', justifyContent: 'space-between', width: '200px' }}>
-                                        <a href={`/dash/${params.row._id}`} className='btn btn-primary m-1' title='View Details'>
+                                        <a href={`/clear-rack/${params.row._id}`} className='btn btn-primary m-1' title='Clear Inventory'>
                                             <BsInfoCircle />
                                         </a>
                                         <a href={`/edit-racks/${params.row._id}`} className='btn btn-warning m-1' title='Edit Rack'>

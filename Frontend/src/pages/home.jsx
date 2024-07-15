@@ -90,7 +90,7 @@ const Home = () => {
                                     <td>{rack.Filled.toString()}</td>
                                     <td>{rack.Item}</td>
                                     <td>
-                                        <a href={`/dash/${rack._id}`} className='btn btn-primary m-1' title='View Details'>
+                                        <a href={`/clear-rack/${rack._id}`} className='btn btn-primary m-1' title='Create Removal Request'>
                                             <BsInfoCircle />
                                         </a>
                                         <a href={`/edit-racks/${rack._id}`} className='btn btn-warning m-1' title='Edit Rack'>

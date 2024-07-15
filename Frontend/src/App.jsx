@@ -13,6 +13,8 @@ import SensorPage from './pages/Sensor'
 import './index.css'
 import AddBig from './pages/addbig'
 import Dashboard from './pages/dash'
+import LandingPage from './pages/Landing'
+import PredictiveRestockingPage from './pages/Additional'
 const App = () => {
   return (
     <Routes>
@@ -27,6 +29,8 @@ const App = () => {
       <Route path="/clear-rack/:number" element={<Clear />} />
       <Route path="/landing" element={<SuggestPalletZone />} />
       <Route path="/addbig" element={<AddBig />} />
+      <Route path="/additional" element={<PredictiveRestockingPage />} />
+      <Route path="/home" element={<LandingPage />} />
     </Routes>
   )
 }

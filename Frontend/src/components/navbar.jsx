@@ -7,7 +7,7 @@ function Navigation() {
   return (
     <Navbar   expand="lg">
       <Container>
-        <Navbar.Brand href="/landing" className='py-0 justify-end'>
+        <Navbar.Brand href="/home" className='py-0 justify-end'>
           <img src="/VI.svg" alt="VI Logo" />
         </Navbar.Brand>
         <Navbar.Brand href="/" style={{ color: 'red' }}>Inventory</Navbar.Brand>
@@ -22,7 +22,7 @@ function Navigation() {
               <NavDropdown.Item href="/dash">
                 Site Trends
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">-NA-</NavDropdown.Item>
+              <NavDropdown.Item href="/additional">Predict</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">
                -NA-

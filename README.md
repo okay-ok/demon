@@ -16,6 +16,10 @@ The proposed solution involves a multi-faceted approach to optimizing warehouse 
 
 - **Optimized Placement:** Place slow-moving and lighter goods in less accessible locations, while fast-moving and heavier goods are stored in highly accessible areas. This strategic placement reduces overall handling time and enhances operational efficiency.
 
+- **Automated Inventory Checking:** Allow for usage of sensors to reconcile physical data with data present in the system and notify user of discrepancies if any.
+
+- **Movemement and Stock Trends Analyzer:** Better preparedness for future by analysing past data and predicting the next round of movement for different cities/sites, and mainiatining stock level trends.
+
 ### Implementation Plan:
 
 To facilitate the practical application of this optimized warehouse management strategy, the development of specialized software is proposed. This software, envisioned as a web application, will provide the following functionalities:
@@ -28,4 +32,8 @@ To facilitate the practical application of this optimized warehouse management s
 
 4. **Storage Location Awareness:** The software will inform users about currently empty storage locations, enabling pre-planning and more efficient use of available space. This feature is particularly useful for anticipating future inventory arrivals and organizing the warehouse layout proactively.
 
-By implementing this software solution, the <Cluster Name> Cluster can achieve higher levels of space optimization, reduce handling times, and minimize labor costs. The systematic approach to inventory management will ensure that the warehouse operates at peak efficiency, despite the space constraints.
+5. **Sensor Status Monitoring:** The software will provide real-time updates on the status of sensors installed in the warehouse. This feature ensures that the inventory data is accurate and reliable, reducing the risk of discrepancies between physical inventory and the system records.
+
+6. **Data Analysis and Reporting:** The software will generate reports on inventory movement trends and stock levels.  These reports will help in identifying areas for improvement and optimizing warehouse operations further.
+
+ The systematic approach to inventory management will ensure that the warehouse operates at peak efficiency, despite the space constraints.
